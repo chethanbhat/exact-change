@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Symmetric Difference</title>
+  </head>
+  <body>
+
+      <script type="text/javascript">
+
+
+        function checkCashRegister(price, cash, cid) {
+          var change;
+          // Here is your change, ma'am.
+          change = cash - price;
+          console.log(change);
+          }
+
+          function greedy(change){
+
+          var changeInPennies = change*100;
+          var balance;
+          var hundred,twenty,ten,five,one,quarter,dime,nickel,penny ;
+          var solution = [];
+
+          var currency = [[100, "ONE HUNDRED"], [20, "TWENTY"], [10, "TEN"], [5, "FIVE"], [1, "ONE"], [0.25, "QUARTER"], [0.1, "DIME"], [0.05, "NICKEL"], [0.01,"PENNY"]];
+
+          var currencyBalance = changeInPennies;
+
+          for(var i=0; i < currency.length; i++){
+
+            var digit = currency[i][0];
+
+            var currencyCount = count(currencyBalance,digit)
+            var currencyBalance = balancer(currencyBalance,digit)
+
+            if(currencyCount > 0){
+
+              a = new Array();
+              a[0] = currency[i][1];
+              a[1] = currencyCount;
+
+              solution.push(a);
+
+            }
+
+          }
+
+            console.log(solution);
+
+            function balancer(value,denomination) {
+
+               return (value % (denomination * 100));
+
+            }
+
+            function count(value,denomination) {
+
+                return (parseInt(value/(denomination * 100)));
+            }
+
+          }
+
+          greedy(96.74);
+
+          // Example cash-in-drawer array:
+          // [["PENNY", 1.01],
+          // ["NICKEL", 2.05],
+          // ["DIME", 3.10],
+          // ["QUARTER", 4.25],
+          // ["ONE", 90.00],
+          // ["FIVE", 55.00],
+          // ["TEN", 20.00],
+          // ["TWENTY", 60.00],
+          // ["ONE HUNDRED", 100.00]]
+
+        //checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+
+
+
+
+
+
+
+
+
+
+
+      </script>
+
+
+
+
+  </body>
+</html>
